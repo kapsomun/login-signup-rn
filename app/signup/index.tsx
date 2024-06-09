@@ -15,7 +15,7 @@ export default function Signup() {
       />
       <Form type="SignUp" btnTitle="Sign up" />
       <LinkText
-        mainText="If you  have an account, "
+        mainText="If you have an account, "
         linkText="Log in."
         link="/"
       />

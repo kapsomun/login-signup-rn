@@ -15,7 +15,7 @@ export default function Login() {
       <View>
         <Form type="Login" btnTitle="Log in" />
         <View style={styles.underline}>
-          <Text style={styles.underlineText}>forgot password ?</Text>
+          <Text style={styles.underlineText}>Forgot password?</Text>
         </View>
       </View>
       <LinkText
