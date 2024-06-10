@@ -1,15 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import { View, Text } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
+// import { setItem } from "@/storage/mmkvStorage";
 
 import StyledInput from "../StyledInput";
 import StyledButton from "../StyledButton";
 
-
 interface IForm {
-  type: "Login" | "SignUp"; 
-  btnTitle: string; 
+  type: "Login" | "SignUp";
+  btnTitle: string;
 }
 
 interface FormValues {
@@ -18,28 +21,37 @@ interface FormValues {
   password: string;
 }
 
-const Form:FC<IForm> = ({ type, btnTitle}) => {
-  
-  const initialValues:FormValues =
+const Form: FC<IForm> = ({ type, btnTitle }) => {
+  const initialValues: FormValues =
     type === "Login"
       ? { email: "", password: "" }
       : { email: "", name: "", password: "" };
 
-      const validationSchema = Yup.object().shape({
-        name: type !== "Login" ? Yup.string().required("Name is required") : null,
-        email: Yup.string().email("Invalid email").required("Email is required"),
-        password: Yup.string()
-          .min(8, "Password must be at least 8 characters")
-          .required("Password is required"),
-      });
-      const handleSubmit = async (values: FormValues) => {
-        try {
-          // await setItem("userData", values);
-          console.log("Data saved successfully:", values);
-        } catch (error) {
-          console.error("Error saving data:", error);
-        }
-      };
+  const validationSchema = Yup.object().shape({
+    name: type !== "Login" ? Yup.string().required("Name is required") : null,
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .required("Password is required"),
+  });
+
+  const handleSubmit = async (values: FormValues) => {
+    try {
+      await AsyncStorage.setItem("userData", JSON.stringify(values));
+      console.log("Data saved successfully:", values);
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+
+    //MMKV------------------------------------------------------
+    // try {
+    //   await setItem("userData", values);
+    //   console.log("Data saved successfully:", values);
+    // } catch (error) {
+    //   console.error("Error saving data:", error);
+    // }
+    //MMKV------------------------------------------------------
+  };
 
   return (
     <Formik

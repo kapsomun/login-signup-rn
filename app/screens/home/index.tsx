@@ -1,18 +1,33 @@
-import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import React, { FC, useEffect, useState } from "react";
+import { Text, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import Header from '@/components/Header';
-import Form from '@/components/Form';
-import LinkText from '@/components/LinkText';
-import LoginSvg from '@/assets/svg/LoginSvg';
-
-import styles from './styles';
+import styles from "./styles";
 
 const HomeScreen: FC = () => {
-	return (
-		<View style={styles.container}>
-			<Text>Home</Text>
-		</View>
-	);
+  const [name, setName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const getName = async () => {
+      try {
+        const userData = await AsyncStorage.getItem("userData");
+        if (userData) {
+          const { name } = JSON.parse(userData);
+          setName(name);
+        }
+      } catch (error) {
+        console.error("Error retrieving user data:", error);
+      }
+    };
+
+    getName();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text>Welcome {name ? name : "Guest"}</Text>
+    </View>
+  );
 };
+
 export default HomeScreen;

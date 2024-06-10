@@ -5,12 +5,12 @@ import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 
 export default function SplashScreen() {
-    // const navigation = useNavigation();
+
 
     const isFocused = useIsFocused()
     useEffect(()=>{
         if(isFocused === true) {
-           
+
             StackActions.replace(routes.LoginScreen);
         }
     }, [isFocused])
