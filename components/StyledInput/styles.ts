@@ -4,14 +4,18 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     justifyContent: "center",
+    marginVertical: 10,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    color: "black"
   },
   input: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    marginVertical: 10,
+    height: 40,
+    
     borderBottomColor: "black",
     borderBottomWidth: 2,
     textAlign: "center",
+    color: "black"
   },
 });
 

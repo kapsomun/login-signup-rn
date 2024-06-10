@@ -1,6 +1,7 @@
 import { View, Text } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import React from 'react';
 
 import StyledInput from "../StyledInput";
 import StyledButton from "../StyledButton";
@@ -22,6 +23,8 @@ const Form = ({ type, btnTitle = "Log in" }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={(values) => console.log(values)}
+      validateOnChange={false}
+      validateOnBlur={false}
     >
       {({ handleSubmit, handleChange, values, errors }) => (
         <View>
@@ -31,7 +34,7 @@ const Form = ({ type, btnTitle = "Log in" }) => {
                 placeholder="Name"
                 value={values.name}
                 onChangeText={handleChange("name")}
-                onBlur={handleChange("name")}
+                // onBlur={handleChange("name")}
               />
               {errors.name && (
                 <Text style={{ color: "red" }}>{errors.name}</Text>
@@ -42,14 +45,14 @@ const Form = ({ type, btnTitle = "Log in" }) => {
             placeholder="Email"
             value={values.email}
             onChangeText={handleChange("email")}
-            onBlur={handleChange("email")}
+            // onBlur={handleChange("email")}
           />
           {errors.email && <Text style={{ color: "red" }}>{errors.email}</Text>}
           <StyledInput
             placeholder="Password"
             value={values.password}
             onChangeText={handleChange("password")}
-            onBlur={handleChange("password")}
+            // onBlur={handleChange("password")}
           />
           {errors.password && (
             <Text style={{ color: "red" }}>{errors.password}</Text>
