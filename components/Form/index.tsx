@@ -32,13 +32,20 @@ const Form:FC<IForm> = ({ type, btnTitle}) => {
           .min(8, "Password must be at least 8 characters")
           .required("Password is required"),
       });
-      
+      const handleSubmit = async (values: FormValues) => {
+        try {
+          // await setItem("userData", values);
+          console.log("Data saved successfully:", values);
+        } catch (error) {
+          console.error("Error saving data:", error);
+        }
+      };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={handleSubmit}
       validateOnChange={false}
       validateOnBlur={false}
     >

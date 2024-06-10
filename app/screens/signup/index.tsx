@@ -1,12 +1,14 @@
-import React, { FC, ReactElement } from 'react';
-import { View, ViewStyle } from "react-native";
+import React, { FC} from 'react';
+import { View } from "react-native";
 
+import routes from "@/app/navigation/routes";
 import Header from "@/components/Header";
 import Form from "@/components/Form";
 import LinkText from "@/components/LinkText";
 import SignupSvg from "@/assets/svg/SignupSvg";
 
 import styles from "./styles";
+
 
 
 const SignupScreen:FC = () => {
@@ -21,7 +23,7 @@ const SignupScreen:FC = () => {
       <LinkText
         mainText="If you have an account, "
         linkText="Log in."
-        link="/"
+        link={routes.LoginScreen}
       />
     </View>
   );

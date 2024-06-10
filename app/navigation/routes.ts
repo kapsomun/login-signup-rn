@@ -1,8 +1,21 @@
+
 const routes = {
-    SplashScreen: 'SplashScreenStack' as const,
-    HomeStack: 'HomeStack' as const,
-    LoginStack: 'LoginStack' as const,
-    SignupStack: 'SignupStack' as const
-}
+  SplashScreen: "SplashScreen" as const,
+  HomeStack: "HomeStack" as const,
+  HomeScreen: "HomeScreen" as const,
+  LoginStack: "LoginStack" as const,
+  LoginScreen: "LoginScreen" as const,
+  SignupScreen: "SignupScreen" as const,
+};
+
+export type RootStackParamList = {
+  SplashScreen: undefined;
+  LoginScreen: undefined;
+  LoginStack: undefined;
+  SignupScreen: undefined;
+  HomeScreen: undefined;
+  HomeStack: undefined;
+};
+
 
 export default routes

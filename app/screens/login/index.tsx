@@ -7,6 +7,7 @@ import LinkText from '@/components/LinkText';
 import LoginSvg from '@/assets/svg/LoginSvg';
 
 import styles from './styles';
+import routes from '@/app/navigation/routes';
 
 const LoginScreen: FC = () => {
 	return (
@@ -22,7 +23,7 @@ const LoginScreen: FC = () => {
 					<Text style={styles.underlineText}>Forgot password?</Text>
 				</View>
 			</View>
-			<LinkText mainText="If you don't have an account, " linkText="Sign up." link="/signup" />
+			<LinkText mainText="If you don't have an account, " linkText="Sign up." link={routes.SignupScreen} />
 		</View>
 	);
 };

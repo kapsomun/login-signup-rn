@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
-import { Link } from 'expo-router';
+import { useNavigation } from "@react-navigation/native";
 import { View, Text } from 'react-native';
 
+import StyledButton from "../StyledButton";
+
+
 import styles from './styles';
+
 
 interface ILinkText {
 	mainText: string;
@@ -11,14 +15,13 @@ interface ILinkText {
 }
 
 const LinkText: FC<ILinkText> = ({ mainText, linkText, link }) => {
+	
 	return (
-		<View style={styles.container}>
-			<Text style={styles.mainText}>{mainText}</Text>
-			<Link style={styles.linkText} href={link}>
-				{linkText}
-			</Link>
-		</View>
-	);
+    <View style={styles.container}>
+      <Text style={styles.mainText}>{mainText}</Text>
+      <StyledButton title={linkText} screenName={link} />
+    </View>
+  );
 };
 
 export default LinkText;

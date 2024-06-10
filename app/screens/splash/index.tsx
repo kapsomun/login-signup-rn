@@ -1,18 +1,19 @@
 import routes from '@/app/navigation/routes';
+// import { getItem } from '@/storage/mmkvStorage';
 import { StackActions, useIsFocused, useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 
-export default function SplashScreenStack() {
+export default function SplashScreen() {
     // const navigation = useNavigation();
 
-    // const isFocused = useIsFocused()
-    // useEffect(()=>{
-    //     if(isFocused === true) {
-    //         console.log('im here');
-            
-    //     }
-    // }, [isFocused])
+    const isFocused = useIsFocused()
+    useEffect(()=>{
+        if(isFocused === true) {
+           
+            StackActions.replace(routes.LoginScreen);
+        }
+    }, [isFocused])
 
 
 
@@ -40,7 +41,7 @@ export default function SplashScreenStack() {
     //     onAuthStateChanged(5435435435); // Або onAuthStateChanged(реальні_дані_користувача)
     // }, [navigation]);
 
-    return <View ><Text>hello</Text></View>;
+    return <View />;
 }
 // https://github.com/mrousavy/react-native-mmkv
 

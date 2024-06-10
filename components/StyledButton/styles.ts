@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
   },
+  underlineButton: {
+   paddingVertical : 8,
+  },
+  linkText: {
+    color: "blue",
+    textDecorationLine: "underline",
+  },
   pressed: {
     opacity: 0.8,
     backgroundColor: "rgb(65, 65, 245)",
