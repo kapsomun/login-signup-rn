@@ -1,11 +1,9 @@
 import { Slot } from "expo-router";
-import React, { ReactElement } from "react";
+import React, { FC} from "react";
+import RootNavigator from ".";
 
-
-
-export default function HomeLayout():ReactElement {
-  return (
-      <Slot />
-  );
+const App =() => {
+  return  <Slot/>
 }
 
+export default  App;

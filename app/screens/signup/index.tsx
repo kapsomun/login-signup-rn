@@ -9,7 +9,7 @@ import SignupSvg from "@/assets/svg/SignupSvg";
 import styles from "./styles";
 
 
-const Signup:FC = () => {
+const SignupScreen:FC = () => {
   return (
     <View style={styles.container}>
       <Header
@@ -26,4 +26,4 @@ const Signup:FC = () => {
     </View>
   );
 }
-export default Signup
+export default SignupScreen
