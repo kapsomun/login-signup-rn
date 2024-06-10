@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Pressable, Text } from "react-native";
+
 import styles from "./styles";
 
 interface IButton {
