@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Text, View } from 'react-native';
-
 
 import Header from '@/components/Header';
 import Form from '@/components/Form';
@@ -9,11 +8,11 @@ import LoginSvg from '@/assets/svg/LoginSvg';
 
 import styles from './styles';
 
-export default function Login() {
+const Login: FC = () => {
 	return (
 		<View style={styles.container}>
 			<Header
-				Image={() => <LoginSvg style={{ width: 150, height: 150 }} />}
+				Image={<LoginSvg style={{ width: 150, height: 150 }} />}
 				title="Log into your Account"
 				describe={`Lorem ipsum dolor sit amet consectetur ${'\n'} adipisicing elit. Commodi, ullam.`}
 			/>
@@ -26,4 +25,5 @@ export default function Login() {
 			<LinkText mainText="If you don't have an account, " linkText="Sign up." link="/signup" />
 		</View>
 	);
-}
+};
+export default Login;

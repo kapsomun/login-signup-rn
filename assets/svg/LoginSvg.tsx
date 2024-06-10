@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Svg, { G, Path, Circle } from 'react-native-svg';
 
-export default function LoginSvg({ style }) {
+interface ILoginSvg {
+	style?: object;
+}
+
+const LoginSvg: FC<ILoginSvg> = ({ style }) => {
 	return (
 		<Svg style={style} viewBox="0 0 61.8092 61.8092">
 			<G data-name="Layer 2" id="Layer_2">
@@ -76,3 +80,4 @@ export default function LoginSvg({ style }) {
 		</Svg>
 	);
 }
+export default LoginSvg

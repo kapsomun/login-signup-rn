@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Pressable, Text } from "react-native";
-
-
 import styles from "./styles";
 
+interface IButton {
+  onPress: (value?: any) => void;
+  title: string;
+}
 
-
-
-
-
-
-export default function StyledButton({ onPress, title }) {
+const StyledButton: FC<IButton> = ({ onPress, title }) => {
   return (
     <Pressable
       onPress={onPress}
@@ -20,3 +17,5 @@ export default function StyledButton({ onPress, title }) {
     </Pressable>
   );
 }
+
+export default StyledButton;

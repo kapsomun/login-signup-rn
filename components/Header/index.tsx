@@ -1,14 +1,18 @@
 import {Text, View } from 'react-native';
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles';
 
-
-export default function Header({ Image, title, describe }) {
+interface IHeader {
+	Image : JSX.Element
+	title: string;
+	describe: string;
+}
+const Header:FC<IHeader> = ({ Image, title, describe }) => {
 	return (
 		<View style={styles.textContainer}>
 			<View >
-			{Image()}
+			{Image}
 			</View>
 			<View style={styles.title}>
 				<Text style={styles.titleText}>{title}</Text>
@@ -19,3 +23,4 @@ export default function Header({ Image, title, describe }) {
 		</View>
 	);
 }
+export default  Header

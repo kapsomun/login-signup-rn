@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Text } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -7,19 +7,31 @@ import StyledInput from "../StyledInput";
 import StyledButton from "../StyledButton";
 
 
+interface IForm {
+  type: "Login" | "SignUp"; 
+  btnTitle: string; 
+}
 
+interface FormValues {
+  name?: string;
+  email: string;
+  password: string;
+}
 
-const Form = ({ type, btnTitle = "Log in" }) => {
-  const initialValues =
+const Form:FC<IForm> = ({ type, btnTitle}) => {
+  const initialValues:FormValues =
     type === "Login"
       ? { email: "", password: "" }
       : { email: "", name: "", password: "" };
 
-  const validationSchema = Yup.object().shape({
-    name: type !== "Login" ? Yup.string().required("Name is required") : null,
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
+      const validationSchema = Yup.object().shape({
+        name: type !== "Login" ? Yup.string().required("Name is required") : null,
+        email: Yup.string().email("Invalid email").required("Email is required"),
+        password: Yup.string()
+          .min(8, "Password must be at least 8 characters")
+          .required("Password is required"),
+      });
+      
 
   return (
     <Formik
@@ -54,6 +66,7 @@ const Form = ({ type, btnTitle = "Log in" }) => {
           <StyledInput
             placeholder="Password"
             value={values.password}
+            secureTextEntry={true}
             onChangeText={handleChange("password")}
             // onBlur={handleChange("password")}
           />

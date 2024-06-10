@@ -1,5 +1,5 @@
-import React from 'react';
-import { View } from "react-native";
+import React, { FC, ReactElement } from 'react';
+import { View, ViewStyle } from "react-native";
 
 import Header from "@/components/Header";
 import Form from "@/components/Form";
@@ -9,12 +9,11 @@ import SignupSvg from "@/assets/svg/SignupSvg";
 import styles from "./styles";
 
 
-
-export default function Signup() {
+const Signup:FC = () => {
   return (
     <View style={styles.container}>
       <Header
-        Image={() => <SignupSvg style={{ width: 150, height: 150 }} />}
+        Image={<SignupSvg style={{ width: 150, height: 150 }} />}
         title="Create your Account"
         describe={`Lorem ipsum dolor sit amet consectetur ${"\n"} adipisicing elit. Commodi, ullam.`}
       />
@@ -27,3 +26,4 @@ export default function Signup() {
     </View>
   );
 }
+export default Signup

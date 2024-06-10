@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Svg, { G, Path } from 'react-native-svg';
 
-export default function SignupSvg({ style }) {
+interface SignupSvg {
+	style?: object;
+}
+
+const SignupSvg: FC<SignupSvg> = ({ style }) => {
 	return (
 		<Svg style={style} viewBox="0 0 500 500" enable-background="new 0 0 500 500">
 			<G>
@@ -161,4 +165,6 @@ export default function SignupSvg({ style }) {
 			</G>
 		</Svg>
 	);
-}
+};
+
+export default SignupSvg;
