@@ -49,7 +49,6 @@ const Form:FC<IForm> = ({ type, btnTitle}) => {
                 placeholder="Name"
                 value={values.name}
                 onChangeText={handleChange("name")}
-                // onBlur={handleChange("name")}
               />
               {errors.name && (
                 <Text style={{ color: "red" }}>{errors.name}</Text>
@@ -60,7 +59,6 @@ const Form:FC<IForm> = ({ type, btnTitle}) => {
             placeholder="Email"
             value={values.email}
             onChangeText={handleChange("email")}
-            // onBlur={handleChange("email")}
           />
           {errors.email && <Text style={{ color: "red" }}>{errors.email}</Text>}
           <StyledInput
@@ -68,7 +66,6 @@ const Form:FC<IForm> = ({ type, btnTitle}) => {
             value={values.password}
             secureTextEntry={true}
             onChangeText={handleChange("password")}
-            // onBlur={handleChange("password")}
           />
           {errors.password && (
             <Text style={{ color: "red" }}>{errors.password}</Text>
