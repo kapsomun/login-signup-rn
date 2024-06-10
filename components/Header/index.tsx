@@ -8,6 +8,7 @@ interface IHeader {
 	title: string;
 	describe: string;
 }
+
 const Header:FC<IHeader> = ({ Image, title, describe }) => {
 	return (
 		<View style={styles.textContainer}>

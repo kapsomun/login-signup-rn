@@ -19,6 +19,7 @@ interface FormValues {
 }
 
 const Form:FC<IForm> = ({ type, btnTitle}) => {
+  
   const initialValues:FormValues =
     type === "Login"
       ? { email: "", password: "" }
