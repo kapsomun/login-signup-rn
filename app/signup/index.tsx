@@ -1,10 +1,14 @@
-import { View } from "react-native";
 import React from 'react';
+import { View } from "react-native";
+
 import Header from "@/components/Header";
 import Form from "@/components/Form";
 import LinkText from "@/components/LinkText";
-import styles from "./styles";
 import SignupSvg from "@/assets/svg/SignupSvg";
+
+import styles from "./styles";
+
+
 
 export default function Signup() {
   return (

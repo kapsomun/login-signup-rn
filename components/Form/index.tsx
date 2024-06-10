@@ -1,10 +1,13 @@
+import React from 'react';
 import { View, Text } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import React from 'react';
 
 import StyledInput from "../StyledInput";
 import StyledButton from "../StyledButton";
+
+
+
 
 const Form = ({ type, btnTitle = "Log in" }) => {
   const initialValues =

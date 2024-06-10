@@ -1,6 +1,11 @@
+import React from "react";
 import { Link } from "expo-router";
 import { View, Text } from "react-native";
+
 import styles from "./styles";
+
+
+
 
 const LinkText = ({ mainText, linkText, link }) => {
   return (

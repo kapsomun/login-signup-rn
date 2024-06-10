@@ -1,10 +1,13 @@
-import { Text, View } from 'react-native';
 import React from 'react';
-import styles from './styles';
+import { Text, View } from 'react-native';
+
+
 import Header from '@/components/Header';
 import Form from '@/components/Form';
 import LinkText from '@/components/LinkText';
 import LoginSvg from '@/assets/svg/LoginSvg';
+
+import styles from './styles';
 
 export default function Login() {
 	return (
