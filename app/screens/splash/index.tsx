@@ -7,30 +7,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SplashScreen() {
 	const navigation = useNavigation();
-	const [data, setData] = useState<any | null>(null);
 	const isFocused = useIsFocused();
 
 	useEffect(() => {
-		const getData = async () => {
-			try {
-				const userData = await AsyncStorage.getItem('userData');
-				if (userData) {
-					const parsedData = JSON.parse(userData);
-					setData(parsedData);
-				}
-			} catch (error) {
-				console.error('Error retrieving user data:', error);
-			}
-		};
-
-		getData();
-	}, []);
-
-	useEffect(() => {
 		if (isFocused) {
-			onAuthStateChanged(data);
+			const checkUser = async () => {
+				const user = await AsyncStorage.getItem('user');
+				onAuthStateChanged(user);
+			};
+			setTimeout(checkUser, 2000);
 		}
-	}, [isFocused, data]);
+	}, [navigation]);
 
 	function onAuthStateChanged(userData: any) {
 		const goToTabs = () => {
@@ -52,3 +39,27 @@ export default function SplashScreen() {
 
 	return <View />;
 }
+
+// useEffect(() => {
+// 	const getData = async () => {
+// 		try {
+// 			const userData = await AsyncStorage.getItem('userData');
+// 			if (userData) {
+// 				const parsedData = JSON.parse(userData);
+// 				setData(parsedData);
+// 			}
+// 		} catch (error) {
+// 			console.error('Error retrieving user data:', error);
+// 		}
+// 	};
+
+// 	getData();
+// }, []);
+
+// useEffect(() => {
+// 	if (isFocused) {
+// 		onAuthStateChanged(data);
+// 	}
+// }, [isFocused, data]);
+
+//
