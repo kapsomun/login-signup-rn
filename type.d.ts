@@ -6,5 +6,6 @@ export type StackNavigationProps = NativeStackScreenProps<
   RootStackParamList,
   LoginScreen,
   SignupScreen,
-  HomeStack
+  HomeStack,
+  WelcomeScreen
 >;

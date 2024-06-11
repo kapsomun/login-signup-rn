@@ -1,5 +1,5 @@
 import { StackActions, useIsFocused, useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 
 import routes from '@/app/navigation/routes';
@@ -26,7 +26,7 @@ export default function SplashScreen() {
 		};
 
 		const goToLogin = () => {
-			const replaceAction = StackActions.replace(routes.LoginStack);
+			const replaceAction = StackActions.replace(routes.WelcomeScreen);
 			navigation.dispatch(replaceAction);
 		};
 

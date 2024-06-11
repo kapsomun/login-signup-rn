@@ -29,17 +29,33 @@ const Form: FC<IForm> = ({ type, btnTitle }) => {
 		type === 'Login' ? { email: '', password: '' } : { email: '', name: '', password: '' };
 
 	const handleSubmit = async (values: FormValues) => {
-		try {
-			await AsyncStorage.setItem('userData', JSON.stringify(values));
-			let replaceAction = StackActions.replace('HomeStack');
-			if (values.name) {
-				replaceAction = StackActions.replace('LoginStack');
-			}
-			navigation.dispatch(replaceAction);
-		} catch (error) {
-			console.error('Error saving data:', error);
-		}
-	};
+    try {
+      // Отримуємо існуючі дані користувача з AsyncStorage
+      const existingData = await AsyncStorage.getItem("userData");
+      let updatedData = values;
+
+      if (existingData) {
+        // Парсимо існуючі дані та об'єднуємо з новими даними
+        const parsedData = JSON.parse(existingData);
+        updatedData = { ...parsedData, ...values };
+      }
+
+      // Зберігаємо об'єднані дані назад в AsyncStorage
+      await AsyncStorage.setItem("userData", JSON.stringify(updatedData));
+
+      // Визначаємо, на який стек перенаправити користувача
+      let replaceAction = StackActions.replace("HomeStack");
+      if (values.name) {
+        replaceAction = StackActions.replace("LoginStack");
+      }
+
+      // Виконуємо навігацію
+      navigation.dispatch(replaceAction);
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+  };
+
 
 	return (
 		<Formik

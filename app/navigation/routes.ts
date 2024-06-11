@@ -6,6 +6,7 @@ const routes = {
   LoginStack: "LoginStack" as const,
   LoginScreen: "LoginScreen" as const,
   SignupScreen: "SignupScreen" as const,
+  WelcomeScreen: "WelcomeScreen" as const,
 };
 
 export type RootStackParamList = {
@@ -15,6 +16,7 @@ export type RootStackParamList = {
   SignupScreen: undefined;
   HomeScreen: undefined;
   HomeStack: undefined;
+  WelcomeScreen: undefined;
 };
 
 

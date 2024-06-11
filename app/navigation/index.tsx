@@ -7,6 +7,7 @@ import LoginScreen from '../screens/login';
 import SignupScreen from '../screens/signup';
 import HomeScreen from '../screens/home';
 import SplashScreen from "../screens/splash";
+import WelcomeScreen from '../screens/welcome';
 
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -48,6 +49,11 @@ const RootNavigator: FC = () => {
       <RootStack.Screen
         name={routes.SplashScreen}
         component={SplashScreen}
+        options={{ headerShown: false, orientation: "portrait" }}
+      />
+      <RootStack.Screen
+        name={routes.WelcomeScreen}
+        component={WelcomeScreen}
         options={{ headerShown: false, orientation: "portrait" }}
       />
       <RootStack.Screen
