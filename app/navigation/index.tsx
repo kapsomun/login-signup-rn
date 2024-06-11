@@ -44,7 +44,7 @@ const LoginStackScreens = () => {
 
 const RootNavigator: FC = () => {
   return (
-    <RootStack.Navigator initialRouteName={routes.LoginStack}>
+    <RootStack.Navigator initialRouteName={routes.SplashScreen}>
       <RootStack.Screen
         name={routes.SplashScreen}
         component={SplashScreen}

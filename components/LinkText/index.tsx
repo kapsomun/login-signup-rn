@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { useNavigation } from "@react-navigation/native";
 import { View, Text } from 'react-native';
 
 import StyledButton from "../StyledButton";
@@ -19,7 +18,7 @@ const LinkText: FC<ILinkText> = ({ mainText, linkText, link }) => {
 	return (
     <View style={styles.container}>
       <Text style={styles.mainText}>{mainText}</Text>
-      <StyledButton title={linkText} screenName={link} />
+      <StyledButton title={linkText} screenName={link} type="underline" />
     </View>
   );
 };
