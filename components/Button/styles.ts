@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginVertical: 8,
     marginHorizontal: "auto",
-    backgroundColor: "rgb(41, 41, 241)",
-    minWidth: '70%',
+    backgroundColor: "#2c78ea",
+    minWidth: '80%',
   },
   buttonText: {
     textAlign: "center",

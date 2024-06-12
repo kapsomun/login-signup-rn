@@ -1,21 +1,32 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-import AuthInput from '../AuthInput';
+import Input from "../Input";
 
 interface AuthFieldProps {
-	placeholder: string;
-	value: string;
-	onChangeText: (text: string) => void;
-	error?: string;
-	secureTextEntry?: boolean;
+  placeholder: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  error?: string;
+  secureTextEntry?: boolean;
 }
 
-const AuthField: React.FC<AuthFieldProps> = ({ placeholder, value, onChangeText, error, secureTextEntry }) => (
-	<View>
-		<AuthInput placeholder={placeholder} value={value} onChangeText={onChangeText} secureTextEntry={secureTextEntry} />
-		{error && <Text style={{ color: 'red' }}>{error}</Text>}
-	</View>
+const AuthField: React.FC<AuthFieldProps> = ({
+  placeholder,
+  value,
+  onChangeText,
+  error,
+  secureTextEntry,
+}) => (
+  <View>
+    <Input
+      placeholder={placeholder}
+      value={value}
+      onChangeText={onChangeText}
+      secureTextEntry={secureTextEntry}
+    />
+    {error && <Text style={{ color: "red" }}>{error}</Text>}
+  </View>
 );
 
 export default AuthField;

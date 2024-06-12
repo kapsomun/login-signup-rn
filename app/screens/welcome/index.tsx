@@ -39,7 +39,7 @@ const WelcomeScreen: FC = () => {
 			</View>
 			<View>
 				{name ? (
-					<Button title="Sign out" underline onPress={() => handleSignOut()} />
+					<Button title="Sign out" onPress={() => handleSignOut()} />
 				) : (
 					<View>
 						<Button
