@@ -9,7 +9,7 @@ interface IHeader {
 	describe: string;
 }
 
-const Header:FC<IHeader> = ({ Image, title, describe }) => {
+const AuthHeader:FC<IHeader> = ({ Image, title, describe }) => {
 	return (
 		<View style={styles.textContainer}>
 			<View >
@@ -24,4 +24,4 @@ const Header:FC<IHeader> = ({ Image, title, describe }) => {
 		</View>
 	);
 }
-export default  Header
+export default  AuthHeader

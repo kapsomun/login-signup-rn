@@ -3,11 +3,10 @@ import { Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
-import StyledButton from '@/components/StyledButton';
+import Button from '@/components/Button';
 
 const HomeScreen: FC = () => {
 	const [name, setName] = useState<string | null>(null);
-
 
 	useEffect(() => {
 		const getName = async () => {
@@ -25,14 +24,13 @@ const HomeScreen: FC = () => {
 		getName();
 	}, []);
 
-
 	return (
-    <View style={styles.container}>
-      <View style={styles.title}>
-        <Text>Home area for next futures</Text>
-      </View>
-    </View>
-  );
+		<View style={styles.container}>
+			<View style={styles.title}>
+				<Text>Home area for next futures</Text>
+			</View>
+		</View>
+	);
 };
 
 export default HomeScreen;

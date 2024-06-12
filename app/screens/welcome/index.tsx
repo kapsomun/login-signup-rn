@@ -4,17 +4,19 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StackActions, useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
-import StyledButton from '@/components/StyledButton';
+import Button from '@/components/Button';
 
 const WelcomeScreen: FC = () => {
 	const [name, setName] = useState<string | null>(null);
 	const navigation = useNavigation();
 	const replaceAction = StackActions.replace('LoginStack');
-	
+
 	useEffect(() => {
 		const getName = async () => {
 			try {
 				const userData = await AsyncStorage.getItem('userData');
+				console.log(userData);
+				
 				if (userData) {
 					const { name } = JSON.parse(userData);
 					setName(name);
@@ -37,10 +39,15 @@ const WelcomeScreen: FC = () => {
 			</View>
 			<View>
 				{name ? (
-					<StyledButton title="Sign out" onPress={() => handleSignOut()} />
+					<Button title="Sign out" underline onPress={() => handleSignOut()} />
 				) : (
 					<View>
-						<StyledButton title="Login" onPress={() => {navigation.dispatch(replaceAction);}} />
+						<Button
+							title="Login"
+							onPress={() => {
+								navigation.dispatch(replaceAction);
+							}}
+						/>
 					</View>
 				)}
 			</View>

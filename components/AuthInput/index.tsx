@@ -7,10 +7,10 @@ interface IInput {
 	onChangeText: (value?: any) => void;
 	value: string;
 	placeholder: string;
-	secureTextEntry?: boolean
+	secureTextEntry?: boolean;
 }
 
-const StyledInput: FC<IInput> = ({ placeholder, value, onChangeText, secureTextEntry }) => {
+const AuthInput: FC<IInput> = ({ placeholder, value, onChangeText, secureTextEntry }) => {
 	return (
 		<View style={styles.inputContainer}>
 			<TextInput
@@ -24,4 +24,4 @@ const StyledInput: FC<IInput> = ({ placeholder, value, onChangeText, secureTextE
 		</View>
 	);
 };
-export default StyledInput;
+export default AuthInput;
