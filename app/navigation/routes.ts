@@ -1,4 +1,3 @@
-
 const routes = {
   SplashScreen: "SplashScreen" as const,
   HomeStack: "HomeStack" as const,
@@ -7,6 +6,10 @@ const routes = {
   LoginScreen: "LoginScreen" as const,
   SignupScreen: "SignupScreen" as const,
   WelcomeScreen: "WelcomeScreen" as const,
+  ProgramRequestStack: "ProgramRequestStack" as const,
+  ProgramRequestScreen1: "ProgramRequestScreen1" as const,
+  ProgramRequestScreen2: "ProgramRequestScreen2" as const,
+  ProgramRequestScreen3: "ProgramRequestScreen3" as const,
 };
 
 export type RootStackParamList = {
@@ -17,7 +20,10 @@ export type RootStackParamList = {
   HomeScreen: undefined;
   HomeStack: undefined;
   WelcomeScreen: undefined;
+  ProgramRequestStack: undefined;
+  ProgramRequestScreen1: undefined;
+  ProgramRequestScreen2: undefined;
+  ProgramRequestScreen3: undefined;
 };
 
-
-export default routes
+export default routes;

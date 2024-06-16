@@ -12,10 +12,14 @@ import SignupScreen from "../screens/signup";
 import HomeScreen from "../screens/home";
 import SplashScreen from "../screens/splash";
 import WelcomeScreen from "../screens/welcome";
+import ProgramRequestScreen1 from "../screens/programRequest/ProgramRequestScreen1";
+import ProgramRequestScreen2 from "../screens/programRequest/ProgramRequestScreen2";
+import ProgramRequestScreen3 from "../screens/programRequest/ProgramRequestScreen3";
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const HomeStack = createStackNavigator<RootStackParamList>();
 const LoginStack = createStackNavigator<RootStackParamList>();
+const ProgramRequestStack = createStackNavigator<RootStackParamList>();
 
 const HomeStackScreens = () => {
   return (
@@ -23,7 +27,12 @@ const HomeStackScreens = () => {
       <HomeStack.Screen
         name={routes.HomeScreen}
         component={HomeScreen}
-        options={{ headerShown: false}}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name={routes.ProgramRequestStack}
+        component={ProgramRequestStackScreens}
+        options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   );
@@ -54,10 +63,31 @@ const LoginStackScreens = () => {
   );
 };
 
+const ProgramRequestStackScreens = () => {
+  return (
+    <ProgramRequestStack.Navigator initialRouteName={routes.ProgramRequestScreen1}>
+      <ProgramRequestStack.Screen
+        name={routes.ProgramRequestScreen1}
+        component={ProgramRequestScreen1}
+        options={{ headerShown: false }}
+      />
+      <ProgramRequestStack.Screen
+        name={routes.ProgramRequestScreen2}
+        component={ProgramRequestScreen2}
+        options={{ headerShown: false }}
+      />
+      <ProgramRequestStack.Screen
+        name={routes.ProgramRequestScreen3}
+        component={ProgramRequestScreen3}
+        options={{ headerShown: false }}
+      />
+    </ProgramRequestStack.Navigator>
+  );
+};
+
 const RootNavigator: FC = () => {
   return (
-    <RootStack.Navigator
-      initialRouteName={routes.SplashScreen}>
+    <RootStack.Navigator initialRouteName={routes.SplashScreen}>
       <RootStack.Screen
         name={routes.SplashScreen}
         component={SplashScreen}
@@ -76,6 +106,11 @@ const RootNavigator: FC = () => {
       <RootStack.Screen
         name={routes.HomeStack}
         component={HomeStackScreens}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name={routes.ProgramRequestStack}
+        component={ProgramRequestStackScreens}
         options={{ headerShown: false }}
       />
     </RootStack.Navigator>

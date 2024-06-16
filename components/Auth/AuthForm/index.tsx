@@ -10,7 +10,7 @@ import {
 	validationSchemaSignup,
 } from './validation';
 import AuthField from '../AuthField/AuthField';
-import Button from '../Button';
+import Button from '../../Button';
 
 interface IForm {
 	type: 'Login' | 'SignUp';

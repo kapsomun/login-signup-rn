@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import Input from "../Input";
+import Input from "@/components/Input";
 
 interface AuthFieldProps {
   placeholder: string;

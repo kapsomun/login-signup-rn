@@ -28,6 +28,9 @@ const HomeScreen: FC = () => {
 		<View style={styles.container}>
 			<View style={styles.title}>
 				<Text>Home area for next futures</Text>
+				<View>
+				<Button title="Login" href="ProgramRequestStack" />
+				</View>
 			</View>
 		</View>
 	);
