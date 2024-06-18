@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 import Button from '@/components/Button';
+import routes from '@/app/navigation/routes';
 
 const HomeScreen: FC = () => {
 	const [name, setName] = useState<string | null>(null);
@@ -29,7 +30,7 @@ const HomeScreen: FC = () => {
 			<View style={styles.title}>
 				<Text>Home area for next futures</Text>
 				<View>
-				<Button title="Login" href="ProgramRequestStack" />
+				<Button  href={routes.ProgramRequestStack} > Go to Form </Button>
 				</View>
 			</View>
 		</View>
