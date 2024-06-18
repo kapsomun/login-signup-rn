@@ -68,7 +68,7 @@ const AuthForm: FC<IForm> = ({ type }) => {
 						error={errors.password}
 						secureTextEntry
 					/>
-					<Button onPress={handleSubmit} title={type === 'Login' ? 'Login' : 'Sign up'} />
+					<Button handlePress={handleSubmit} title={type === 'Login' ? 'Login' : 'Sign up'}/> 
 				</View>
 			)}
 		</Formik>

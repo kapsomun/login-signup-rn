@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import {View } from 'react-native';
 
+import AuthFooter from '@/components/Auth/AuthFooter/AuthFooter';
 import AuthHeader from '@/components/Auth/AuthHeader';
 import AuthForm from '@/components/Auth/AuthForm';
+import Link from '@/components/Link';
+
+import routes from '@/app/navigation/routes';
+
 import SignupSvg from '@/assets/svg/SignupSvg';
 
 import styles from './styles';
-import Button from '@/components/Button';
-import AuthFooter from '@/components/Auth/AuthFooter/AuthFooter';
-import Link from '@/components/Link';
-import routes from '@/app/navigation/routes';
 
 const SignupScreen: FC = () => {
 	return (
@@ -21,7 +22,7 @@ const SignupScreen: FC = () => {
       />
       <AuthForm type="SignUp" />
       <AuthFooter title="If u have allready an account">
-      <Link>{routes.LoginScreen}</Link>
+      <Link href={routes.LoginScreen} >Log in</Link>
       </AuthFooter>
     </View>
   );

@@ -4,10 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles';
 import Button from '@/components/Button';
-import routes from '@/app/navigation/routes';
+import routes, { RootStackParamList } from '@/app/navigation/routes';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 const WelcomeScreen: FC = () => {
 	const [name, setName] = useState<string | null>(null);
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
 	useEffect(() => {
 		const getName = async () => {
 			try {
@@ -27,6 +30,15 @@ const WelcomeScreen: FC = () => {
 	}, []);
 
 
+
+	const handlePress = () => {
+		name ?
+
+		navigation.navigate(routes.HomeStack)
+		:
+		navigation.navigate(routes.LoginScreen)
+	}
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.title}>
@@ -34,9 +46,9 @@ const WelcomeScreen: FC = () => {
 			</View>
 			<View>
 				{name ? (
-					<Button  href={routes.HomeStack} >Home </Button>
+					<Button title='Home' handlePress={handlePress}  />
 				) : (
-					<Button href={routes.LoginScreen}>Login</Button>
+					<Button title='Login' handlePress={handlePress}  />
 				)}
 			</View>
 		</View>

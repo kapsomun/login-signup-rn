@@ -28,8 +28,8 @@ const LoginScreen: FC = () => {
           <Text style={styles.underlineText}>Forgot password?</Text>
         </View>
       </View>
-      <AuthFooter title="If u have allready an account">
-        <Link>{routes.SignupScreen}</Link>
+      <AuthFooter title="If u haven't an account">
+        <Link href={routes.SignupScreen} >Sign up</Link>
       </AuthFooter>
     </View>
   );

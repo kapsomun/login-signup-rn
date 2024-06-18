@@ -1,13 +1,17 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { FC, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import Button from '@/components/Button';
+
+import routes, { RootStackParamList } from '@/app/navigation/routes';
 
 import styles from './styles';
-import Button from '@/components/Button';
-import routes from '@/app/navigation/routes';
 
 const HomeScreen: FC = () => {
 	const [name, setName] = useState<string | null>(null);
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
 	useEffect(() => {
 		const getName = async () => {
@@ -25,12 +29,15 @@ const HomeScreen: FC = () => {
 		getName();
 	}, []);
 
+	const handlePress = () => {
+		navigation.navigate(routes.ProgramRequestStack);
+	};
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.title}>
-				<Text>Home area for next futures</Text>
 				<View>
-				<Button  href={routes.ProgramRequestStack} > Go to Form </Button>
+					<Button title="Go to Form" handlePress={handlePress} />
 				</View>
 			</View>
 		</View>

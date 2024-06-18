@@ -1,50 +1,44 @@
-
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { Button, Text, TextInput, View } from 'react-native';
+import routes, { RootStackParamList } from '@/app/navigation/routes';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import Input from '@/components/Input';
 
-const ProgramRequestScreen1 = ({ navigation }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    adults: 0,
-    children: 0
-  });
+import styles from './styles';
 
-  const handleNextStep = () => {
-    navigation.navigate('Screen2', { formData });
-  };
+const ProgramRequestScreen1 = () => {
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		phoneNumber: '',
+		adults: 0,
+		children: 0,
+	});
 
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      {/* Header */}
-      {/* Your header code */}
-      
-      {/* Body */}
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20 }}>
-        {/* Form Inputs */}
-        <TextInput 
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, paddingHorizontal: 10, width: '100%' }} 
-          placeholder="Name"
-          value={formData.name}
-          onChangeText={(text) => setFormData({...formData, name: text})}
-        />
-        <TextInput 
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, paddingHorizontal: 10, width: '100%' }} 
-          placeholder="Email"
-          value={formData.email}
-          onChangeText={(text) => setFormData({...formData, email: text})}
-        />
-        <TextInput 
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, paddingHorizontal: 10, width: '100%' }} 
-          placeholder="Phone Number"
-          value={formData.phoneNumber}
-          onChangeText={(text) => setFormData({...formData, phoneNumber: text})}
-        />
-        
-        {/* Number of People Selection */}
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
+	const handleNextStep = () => {
+		navigation.navigate(routes.ProgramRequestScreen2, { data:formData });
+	};
+
+	return (
+		<View style={styles.container}>
+			<Input
+				placeholder="Name"
+				value={formData.name}
+				onChangeText={(text) => setFormData({ ...formData, name: text })}
+			/>
+			<Input
+				placeholder="Email"
+				value={formData.email}
+				onChangeText={(text) => setFormData({ ...formData, email: text })}
+			/>
+			<Input
+				placeholder="Phone Number"
+				value={formData.phoneNumber}
+				onChangeText={(text) => setFormData({ ...formData, phoneNumber: text })}
+			/>
+
+			{/* <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
           <Text style={{ fontSize: 18, marginRight: 20 }}>Adults:   </Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Button title="-" onPress={() => setFormData({...formData, adults: formData.adults - 1})} />
@@ -62,13 +56,11 @@ const ProgramRequestScreen1 = ({ navigation }) => {
           </View>
         </View>
         
-        {/* Next Step Button */}
         <TouchableOpacity style={{ marginTop: 20, backgroundColor: 'blue', paddingVertical: 10, paddingHorizontal: 20, borderRadius: 5 }} onPress={handleNextStep}>
           <Text style={{ color: 'white', fontSize: 18 }}>Next Step</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+        </TouchableOpacity> */}
+		</View>
+	);
 };
 
 export default ProgramRequestScreen1;

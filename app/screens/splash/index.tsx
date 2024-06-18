@@ -26,7 +26,7 @@ export default function SplashScreen() {
 		};
 
 		const goToLogin = () => {
-			const replaceAction = StackActions.replace(routes.WelcomeScreen);
+			const replaceAction = StackActions.replace(routes.ProgramRequestStack);
 			navigation.dispatch(replaceAction);
 		};
 

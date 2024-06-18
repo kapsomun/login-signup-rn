@@ -1,26 +1,28 @@
+import responsive from "@/utils/size-normalize";
 import { StyleSheet } from "react-native";
+import {Colors} from '../../theme';
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 15,
-    marginVertical: 8,
-    marginHorizontal: "auto",
-    backgroundColor: "#2c78ea",
-    minWidth: '80%',
-  },
-  buttonText: {
-    textAlign: "center",
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    color: "white",
-  },
-  pressed: {
-    opacity: 0.8,
-    backgroundColor: "rgb(65, 65, 245)",
-  },
-});
-
-export default styles;
+const Styles = (contentColor: string, titleColor: string) => {
+  return StyleSheet.create({
+    container: {
+      width: responsive.w(343),
+      backgroundColor: contentColor,
+      paddingVertical: responsive.hp(13),
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: contentColor === Colors.WHITE ? 'gray' : 'transparent',
+    },
+    title: {
+      fontSize: responsive.w(16),
+      fontWeight: '700',
+      lineHeight: responsive.h(26),
+      textAlign: 'center',
+      color: titleColor,
+    },
+    pressed: {
+      opacity: 0.8,
+      backgroundColor: "rgb(65, 65, 245)",
+    },
+  });
+};
+export default Styles;
