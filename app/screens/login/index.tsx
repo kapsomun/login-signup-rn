@@ -1,14 +1,17 @@
 import React, { FC } from "react";
 import { Text, View } from "react-native";
 
+import routes from "@/app/navigation/routes";
+
 import AuthHeader from "@/components/Auth/AuthHeader";
 import AuthForm from "@/components/Auth/AuthForm";
-import Button from "@/components/Button";
+import Link from "@/components/Link";
 import AuthFooter from "@/components/Auth/AuthFooter/AuthFooter";
 
 import LoginSvg from "@/assets/svg/LoginSvg";
 
 import styles from "./styles";
+
 
 
 const LoginScreen: FC = () => {
@@ -26,7 +29,7 @@ const LoginScreen: FC = () => {
         </View>
       </View>
       <AuthFooter title="If u have allready an account">
-        <Button title="Signup" href="SignupScreen" />
+        <Link>{routes.SignupScreen}</Link>
       </AuthFooter>
     </View>
   );

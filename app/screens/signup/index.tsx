@@ -8,6 +8,8 @@ import SignupSvg from '@/assets/svg/SignupSvg';
 import styles from './styles';
 import Button from '@/components/Button';
 import AuthFooter from '@/components/Auth/AuthFooter/AuthFooter';
+import Link from '@/components/Link';
+import routes from '@/app/navigation/routes';
 
 const SignupScreen: FC = () => {
 	return (
@@ -19,7 +21,7 @@ const SignupScreen: FC = () => {
       />
       <AuthForm type="SignUp" />
       <AuthFooter title="If u have allready an account">
-        <Button title="Login" href="LoginScreen" />
+      <Link>{routes.LoginScreen}</Link>
       </AuthFooter>
     </View>
   );

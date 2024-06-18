@@ -16,10 +16,10 @@ import ProgramRequestScreen1 from "../screens/programRequest/ProgramRequestScree
 import ProgramRequestScreen2 from "../screens/programRequest/ProgramRequestScreen2";
 import ProgramRequestScreen3 from "../screens/programRequest/ProgramRequestScreen3";
 
-const RootStack = createStackNavigator<RootStackParamList>();
-const HomeStack = createStackNavigator<RootStackParamList>();
-const LoginStack = createStackNavigator<RootStackParamList>();
-const ProgramRequestStack = createStackNavigator<RootStackParamList>();
+const RootStack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const LoginStack = createStackNavigator();
+const ProgramRequestStack = createStackNavigator();
 
 const HomeStackScreens = () => {
   return (
