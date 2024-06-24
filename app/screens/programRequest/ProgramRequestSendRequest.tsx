@@ -6,20 +6,21 @@ import Input from '@/components/Input';
 import styles from './styles';
 import Header from '@/components/Header';
 import CountButtons from '@/components/CountButtons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const ProgramRequestScreen1 = () => {
+const ProgramRequestSendRequest = () => {
 	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 	const title = 'Hello blya';
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
-		phoneNumber: '',
+		phoneNumber: '', 
 		adults: 0,
 		children: 0,
 	});
 
 	const handleNextStep = () => {
-		navigation.navigate(routes.ProgramRequestScreen2, { data: formData });
+		navigation.navigate(routes.ProgramRequestCountrySelection, { data: formData });
 	};
 
 	const handleIncrease = (field: 'adults' | 'children') => {
@@ -33,7 +34,7 @@ const ProgramRequestScreen1 = () => {
 	};
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Header />
 
 			<View style={styles.contentContainer}>
@@ -90,8 +91,8 @@ const ProgramRequestScreen1 = () => {
 			>
 				<Text >Next Step</Text>
 			</TouchableOpacity>
-		</View>
+		</SafeAreaView>
 	);
 };
 
-export default ProgramRequestScreen1;
+export default ProgramRequestSendRequest;

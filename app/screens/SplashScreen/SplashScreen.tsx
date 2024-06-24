@@ -20,10 +20,10 @@ export default function SplashScreen() {
 	}, [navigation]);
 
 	function onAuthStateChanged(userData: any) {
-		const goToTabs = () => {
-			const replaceAction = StackActions.replace(routes.HomeStack);
-			navigation.dispatch(replaceAction);
-		};
+		// const goToTabs = () => {
+		// 	const replaceAction = StackActions.replace(routes.HomeStack);
+		// 	navigation.dispatch(replaceAction);
+		// };
 
 		const goToLogin = () => {
 			const replaceAction = StackActions.replace(routes.ProgramRequestStack);
@@ -31,7 +31,9 @@ export default function SplashScreen() {
 		};
 
 		if (userData) {
-			goToTabs();
+			// goToTabs();
+			console.log('hi');
+			
 		} else {
 			goToLogin();
 		}

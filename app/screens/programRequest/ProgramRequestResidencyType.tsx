@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ProgramRequestScreen3 = ({ navigation, route }) => {
+const ProgramRequestResidencyType = ({ navigation, route }) => {
   const { formData, selectedCountry } = route.params;
 
   const handleSubmit = () => {
@@ -34,4 +34,4 @@ const ProgramRequestScreen3 = ({ navigation, route }) => {
   );
 };
 
-export default ProgramRequestScreen3;
+export default ProgramRequestResidencyType;
