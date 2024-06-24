@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     paddingVertical: 80,
-    paddingHorizontal: 16,
+    paddingHorizontal: 150,
   },
   underline: {
     textDecorationLine: "underline",

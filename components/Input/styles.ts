@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginVertical: 12,
     paddingVertical: 16,
-    paddingHorizontal: 16,
     color: "#8293aa",
   },
   input: {

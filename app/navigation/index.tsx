@@ -66,7 +66,7 @@ const ProgramRequestStackScreens = () => {
 			<ProgramRequestStack.Screen
 				name={routes.ProgramRequestScreen1}
 				component={ProgramRequestScreen1}
-				options={{ headerShown: true, title: 'Информация о репатриатах' }}
+				options={{ headerShown: false, title: 'Информация о репатриатах' }}
 			/>
 			<ProgramRequestStack.Screen
 				name={routes.ProgramRequestScreen2}

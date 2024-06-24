@@ -44,3 +44,8 @@ export default {
   w,
   h,
 };
+
+// wp - width for blocks, images, padings, margins, etc...
+// hp - height for blocks, images, padings, margins, etc...
+// w - font size
+// h - line-height

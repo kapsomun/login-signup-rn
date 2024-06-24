@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import Svg, { G, Path, Circle } from 'react-native-svg';
 
-interface ILoginSvg {
+interface ISvg {
 	style?: object;
 }
 
-const LoginSvg: FC<ILoginSvg> = ({ style }) => {
+const LoginSvg: FC<ISvg> = ({ style }) => {
 	return (
 		<Svg style={style} viewBox="0 0 61.8092 61.8092">
 			<G data-name="Layer 2" id="Layer_2">

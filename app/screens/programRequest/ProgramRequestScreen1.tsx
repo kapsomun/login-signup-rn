@@ -1,13 +1,15 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Button, Text, TextInput, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import routes, { RootStackParamList } from '@/app/navigation/routes';
 import React, { useState } from 'react';
 import Input from '@/components/Input';
-
 import styles from './styles';
+import Header from '@/components/Header';
+import CountButtons from '@/components/CountButtons';
 
 const ProgramRequestScreen1 = () => {
 	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+	const title = 'Hello blya';
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -17,48 +19,77 @@ const ProgramRequestScreen1 = () => {
 	});
 
 	const handleNextStep = () => {
-		navigation.navigate(routes.ProgramRequestScreen2, { data:formData });
+		navigation.navigate(routes.ProgramRequestScreen2, { data: formData });
+	};
+
+	const handleIncrease = (field: 'adults' | 'children') => {
+		setFormData({ ...formData, [field]: formData[field] + 1 });
+	};
+
+	const handleDecrease = (field: 'adults' | 'children') => {
+		if (formData[field] > 0) {
+			setFormData({ ...formData, [field]: formData[field] - 1 });
+		}
 	};
 
 	return (
 		<View style={styles.container}>
-			<Input
-				placeholder="Name"
-				value={formData.name}
-				onChangeText={(text) => setFormData({ ...formData, name: text })}
-			/>
-			<Input
-				placeholder="Email"
-				value={formData.email}
-				onChangeText={(text) => setFormData({ ...formData, email: text })}
-			/>
-			<Input
-				placeholder="Phone Number"
-				value={formData.phoneNumber}
-				onChangeText={(text) => setFormData({ ...formData, phoneNumber: text })}
-			/>
+			<Header />
 
-			{/* <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
-          <Text style={{ fontSize: 18, marginRight: 20 }}>Adults:   </Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Button title="-" onPress={() => setFormData({...formData, adults: formData.adults - 1})} />
-            <Text style={{ marginHorizontal: 10 }}>{formData.adults}</Text> 
-            <Button title="+" onPress={() => setFormData({...formData, adults: formData.adults + 1})} />
-          </View>
-        </View>
-        
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={{ fontSize: 18, marginRight: 20 }}>Children:   </Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Button title="-" onPress={() => setFormData({...formData, children: formData.children - 1})} />
-            <Text style={{ marginHorizontal: 10 }}>{formData.children}</Text> 
-            <Button title="+" onPress={() => setFormData({...formData, children: formData.children + 1})} />
-          </View>
-        </View>
-        
-        <TouchableOpacity style={{ marginTop: 20, backgroundColor: 'blue', paddingVertical: 10, paddingHorizontal: 20, borderRadius: 5 }} onPress={handleNextStep}>
-          <Text style={{ color: 'white', fontSize: 18 }}>Next Step</Text>
-        </TouchableOpacity> */}
+			<View style={styles.contentContainer}>
+				<View style={styles.titleContainer}>
+					<Text style={styles.title}>
+						{title}
+					</Text>
+				</View>
+				<Input
+					placeholder="Name"
+					value={formData.name}
+					onChangeText={text => setFormData({ ...formData, name: text })}
+				/>
+				<Input
+					placeholder="Email"
+					value={formData.email}
+					onChangeText={text => setFormData({ ...formData, email: text })}
+				/>
+				<Input
+					placeholder="Phone Number"
+					value={formData.phoneNumber}
+					onChangeText={text => setFormData({ ...formData, phoneNumber: text })}
+				/>
+
+				<View style={styles.titleContainer}>
+					<Text style={styles.title}>Количество релокантов</Text>
+				</View>
+
+				<View style={styles.counterContainer}>
+					<Text>Взрослых:</Text>
+					<CountButtons
+						count={formData.adults}
+						handleIncrease={() => handleIncrease('adults')}
+						handleDecrease={() => handleDecrease('adults')}
+					/>
+				</View>
+
+				<View style={styles.counterContainer}>
+					<View>
+						<Text>Дети:</Text>
+						<Text>0 - 17 лет</Text>
+					</View>
+					<CountButtons
+						count={formData.children}
+						handleIncrease={() => handleIncrease('children')}
+						handleDecrease={() => handleDecrease('children')}
+					/>
+				</View>
+			</View>
+
+			<TouchableOpacity
+				
+				onPress={handleNextStep}
+			>
+				<Text >Next Step</Text>
+			</TouchableOpacity>
 		</View>
 	);
 };
