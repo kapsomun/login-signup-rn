@@ -2,17 +2,16 @@ import responsive from '@/utils/size-normalize';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-	count: {
+	container: {
 		flexDirection: 'row',
 		alignItems: 'center',
-        marginBottom: responsive.hp(10)
 	},
 
 	pressed: {
 		opacity: 0.3,
 	},
     button: {
-        width: responsive.wp(40),
+        width: responsive.wp(38),
         height: responsive.hp(40),
         justifyContent: 'center',
         alignItems: 'center',
@@ -25,18 +24,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#405efb',
         
     },
-    decText: {
+    count: {
+        marginHorizontal: responsive.wp(10),
+        fontSize: responsive.w(18),
+        fontWeight: 'bold'
+    },
+    decIcon: {
         color: 'black',
-        fontSize: responsive.w(30),
-        lineHeight: responsive.h(30),
+        width: responsive.wp(14),
+        height: responsive.hp(2),
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center'
     },
-    incText : {
+    incIcon : {
         color: "white",
-        fontSize: responsive.w(30),
-        lineHeight: responsive.h(30),
+        width: responsive.wp(14),
+        height: responsive.hp(14),
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center'

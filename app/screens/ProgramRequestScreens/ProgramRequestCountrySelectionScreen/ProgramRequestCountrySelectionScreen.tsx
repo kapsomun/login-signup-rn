@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ProgramRequestCountrySelection = ({ navigation, route }) => {
+const ProgramRequestCountrySelectionScreen = ({ navigation, route }) => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const { formData } = route.params;
 
   const handleNextStep = () => {
-    navigation.navigate(routes.ProgramRequestResidencyType, { formData, selectedCountry });
+    navigation.navigate(routes.ProgramRequestResidencyTypeScreen, { formData, selectedCountry });
   };
 
   return (
@@ -33,4 +33,4 @@ const ProgramRequestCountrySelection = ({ navigation, route }) => {
   );
 };
 
-export default ProgramRequestCountrySelection;
+export default ProgramRequestCountrySelectionScreen;

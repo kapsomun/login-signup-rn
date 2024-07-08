@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		padding: responsive.wp(10),
+		paddingVertical: responsive.wp(10),
+		paddingHorizontal: responsive.hp(16),
         borderBottomWidth: 3,
         borderBottomColor: '#eee',
-        
 	},
 	emptySpace: {
 		flex: 1,
@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
         justifyContent: 'flex-end',
-        gap: 10
+		gap: responsive.wp(10)
 	},
     icon: {
         width: responsive.wp(18),
-        height: responsive.hp(18)
+        height: responsive.hp(18),
+
     }
 
 });

@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useMemo } from 'react';
 import { Pressable } from 'react-native';
 
-import styles from './styles';
+import styles from './icon-button-styles';
 
 interface IButton {
 	handlePress: (value?: any) => void;

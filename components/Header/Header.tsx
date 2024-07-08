@@ -2,8 +2,8 @@ import { Pressable, View } from 'react-native';
 import React, { Component } from 'react';
 
 import LogoSvg from '@/assets/svg/LogoSvg';
-import styles from './styles';
-import IconButton from '../IconButton';
+import styles from './header-styles';
+import IconButton from '../IconButton/IconButton';
 import FavoriteSvg from '@/assets/svg/FavoriteSvg';
 import BellSvg from '@/assets/svg/BellSvg';
 
@@ -18,8 +18,8 @@ export class Header extends Component {
 					</Pressable>
 				</View>
 				<View style={styles.iconsContainer}>
-					<IconButton handlePress={() => {}}><FavoriteSvg style={styles.icon} /></IconButton>    
-					<IconButton handlePress={() => {}}><BellSvg style={styles.icon}/></IconButton>  
+					<IconButton handlePress={() => { console.log(1)}}><FavoriteSvg style={styles.icon} /></IconButton>    
+					<IconButton handlePress={() => {console.log(2)}}><BellSvg style={styles.icon} IsNotification={true} /></IconButton>  
 				</View>
 			</View>
 		);

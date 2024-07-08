@@ -2,9 +2,9 @@ import { createStackNavigator} from '@react-navigation/stack';
 import React, { FC } from 'react';
 
 import SplashScreen from '../screens/SplashScreen/SplashScreen';
-import ProgramRequestSendRequest from '../screens/programRequest/ProgramRequestSendRequest';
-import ProgramRequestCountrySelection from '../screens/programRequest/ProgramRequestCountrySelection';
-import ProgramRequestResidencyType from '../screens/programRequest/ProgramRequestResidencyType';
+import ProgramRequestSendRequestScreen from '../screens/ProgramRequestScreens/ProgramRequestSendRequestScreen/ProgramRequestSendRequestScreen';
+import ProgramRequestCountrySelectionScreen from '../screens/ProgramRequestScreens/ProgramRequestCountrySelectionScreen/ProgramRequestCountrySelectionScreen';
+import ProgramRequestResidencyTypeScreen from '../screens/ProgramRequestScreens/ProgramRequestResidencyTypeScreen/ProgramRequestResidencyTypeScreen';
 
 import routes from './routes';
 
@@ -16,20 +16,20 @@ const ProgramRequestStack = createStackNavigator();
 
 const ProgramRequestStackScreens = () => {
 	return (
-		<ProgramRequestStack.Navigator initialRouteName={routes.ProgramRequestSendRequest}>
+		<ProgramRequestStack.Navigator initialRouteName={routes.ProgramRequestSendRequestScreen}>
 			<ProgramRequestStack.Screen
-				name={routes.ProgramRequestSendRequest}
-				component={ProgramRequestSendRequest}
+				name={routes.ProgramRequestSendRequestScreen}
+				component={ProgramRequestSendRequestScreen}
 				options={{ headerShown: false, title: 'Информация о репатриатах' }}
 			/>
 			<ProgramRequestStack.Screen
-				name={routes.ProgramRequestCountrySelection}
-				component={ProgramRequestCountrySelection}
+				name={routes.ProgramRequestCountrySelectionScreen}
+				component={ProgramRequestCountrySelectionScreen}
 				options={{ headerShown: true, title: 'Выбор страны' }}
 			/>
 			<ProgramRequestStack.Screen
-				name={routes.ProgramRequestResidencyType}
-				component={ProgramRequestResidencyType}
+				name={routes.ProgramRequestResidencyTypeScreen}
+				component={ProgramRequestResidencyTypeScreen}
 				options={{ headerShown: true, title: 'Вид резиденства' }}
 			/>
 		</ProgramRequestStack.Navigator>

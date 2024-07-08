@@ -1,19 +1,19 @@
 import { View, Text, Pressable } from 'react-native';
 import React from 'react';
-import styles from './styles';
+import styles from './count-buttons-styles';
 import PlusSvg from '@/assets/svg/PlusSvg';
 import MinusSvg from '@/assets/svg/MinusSvg';
 
 const CountButtons = ({ count, handleIncrease, handleDecrease }) => {
 	return (
-		<View style={styles.count}>
+		<View style={styles.container}>
 			<Pressable
 				style={({ pressed }) => [styles.button, styles.decrease, pressed && styles.pressed]}
 				onPress={handleDecrease}
 			>
-				<MinusSvg style={styles.decText}/>
+				<MinusSvg style={styles.decIcon}/>
 			</Pressable>
-			<Text style={{ marginHorizontal: 10 }}>
+			<Text style={styles.count}>
 				{count}
 			</Text>
 			<Pressable
@@ -21,7 +21,7 @@ const CountButtons = ({ count, handleIncrease, handleDecrease }) => {
 				onPress={handleIncrease}
 			>
                 
-				<PlusSvg style={styles.incText}/>
+				<PlusSvg style={styles.incIcon}/>
 			</Pressable>
 		</View>
 	);

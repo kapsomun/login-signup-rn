@@ -2,7 +2,7 @@ import React, {FC, useMemo} from 'react';
 import {Pressable, Text, StyleProp, TextStyle, ViewStyle} from 'react-native';
  
 import {Colors} from '../../theme';
-import Styles from './styles';
+import Styles from './button-styles';
  
 
  
